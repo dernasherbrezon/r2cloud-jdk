@@ -108,7 +108,7 @@
 			<plugin>
 				<groupId>com.aerse.maven</groupId>
 				<artifactId>deb-maven-plugin</artifactId>
-				<version>1.9-SNAPSHOT</version>
+				<version>1.9</version>
 				<executions>
 					<execution>
 						<id>package</id>

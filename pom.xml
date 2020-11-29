@@ -126,7 +126,6 @@
 					<arch>armhf</arch>
 					<osDependencies>
 					</osDependencies>
-					<generateVersion>false</generateVersion>
 					<fileSets>
 						<fileSet>
 							<source>${basedir}/src/main/deb/jdk</source>

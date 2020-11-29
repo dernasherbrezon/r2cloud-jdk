@@ -130,7 +130,7 @@
 					<fileSets>
 						<fileSet>
 							<source>${basedir}/src/main/deb/jdk</source>
-							<target>/</target>
+							<target>/home/pi/r2cloud-jdk</target>
 						</fileSet>
 					</fileSets>
 				</configuration>

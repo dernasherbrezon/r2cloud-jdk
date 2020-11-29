@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.r2cloud</groupId>
 	<artifactId>r2cloud-jdk</artifactId>
-	<version>11.0.2_1</version>
+	<version>11.0.9.1p1_1</version>
 	<name>r2cloud jdk</name>
 	<description>Custom JDK build for r2cloud</description>
 	<inceptionYear>2019</inceptionYear>
@@ -108,7 +108,7 @@
 			<plugin>
 				<groupId>com.aerse.maven</groupId>
 				<artifactId>deb-maven-plugin</artifactId>
-				<version>1.9</version>
+				<version>1.12</version>
 				<executions>
 					<execution>
 						<id>package</id>
@@ -126,6 +126,7 @@
 					<arch>armhf</arch>
 					<osDependencies>
 					</osDependencies>
+					<generateVersion>false</generateVersion>
 					<fileSets>
 						<fileSet>
 							<source>${basedir}/src/main/deb/jdk</source>

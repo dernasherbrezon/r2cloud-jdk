@@ -125,6 +125,7 @@
 					<javaServiceWrapper>false</javaServiceWrapper>
 					<section>embedded</section>
 					<arch>armhf</arch>
+					<generateVersion>false</generateVersion>
 					<osDependencies>
 					</osDependencies>
 					<fileSets>

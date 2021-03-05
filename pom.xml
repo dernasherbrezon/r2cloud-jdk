@@ -15,6 +15,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<bell.version>11.0.10+9</bell.version>
 	</properties>
 
 	<distributionManagement>
@@ -41,6 +42,24 @@
 			</extension>
 		</extensions>
 		<plugins>
+			<plugin>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<groupId>org.codehaus.mojo</groupId>
+				<executions>
+					<execution>
+						<id>Package</id>
+						<phase>package</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>bash</executable>
+							<commandlineArgs>build.sh ${bell.version} ${build.arch}</commandlineArgs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -124,7 +143,7 @@
 					<unixGroupId>pi</unixGroupId>
 					<javaServiceWrapper>false</javaServiceWrapper>
 					<section>embedded</section>
-					<arch>armhf</arch>
+					<arch>${build.arch}</arch>
 					<generateVersion>false</generateVersion>
 					<osDependencies>
 					</osDependencies>

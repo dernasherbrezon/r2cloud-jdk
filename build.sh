@@ -19,4 +19,4 @@ wget https://download.bell-sw.com/java/${PACKAGE_VERSION}/bellsoft-jdk${PACKAGE_
 echo "extracting..."
 tar xzf bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}.tar.gz
 echo "building..."
-./jdk-${MAJOR_VERSION}/bin/jlink --add-modules java.base,java.desktop,java.logging,java.net.http,jdk.crypto.cryptoki,java.management --compress=2 --no-header-files --no-man-pages --output ./src/main/deb/jdk
+./jdk-${MAJOR_VERSION}/bin/jlink --add-modules java.base,java.desktop,java.logging,java.net.http,jdk.crypto.cryptoki,java.management,jdk.security.auth --compress=2 --no-header-files --no-man-pages --output ./src/main/deb/jdk

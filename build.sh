@@ -10,6 +10,9 @@ then
 elif [ "$CURRENT_ARCH" = "amd64" ]
 then
 	SUFFIX="amd64"
+elif [ "$CURRENT_ARCH" = "arm64" ]
+then
+	SUFFIX="aarch64"
 else
 	echo "unknown arch: ${CURRENT_ARCH}"
 	exit 1
@@ -19,4 +22,6 @@ wget https://download.bell-sw.com/java/${PACKAGE_VERSION}/bellsoft-jdk${PACKAGE_
 echo "extracting..."
 tar xzf bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}.tar.gz
 echo "building..."
-./jdk-${MAJOR_VERSION}/bin/jlink --add-modules java.base,java.desktop,java.logging,java.net.http,jdk.crypto.cryptoki,java.management,jdk.security.auth --compress=2 --no-header-files --no-man-pages --output ./src/main/deb/jdk
+target_directory="./src/main/deb/jdk/"
+rm -r ${target_directory}
+./jdk-${MAJOR_VERSION}/bin/jlink --add-modules java.base,java.desktop,java.logging,java.net.http,jdk.crypto.cryptoki,java.management,jdk.security.auth --compress=2 --no-header-files --no-man-pages --output ${target_directory}

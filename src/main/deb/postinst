@@ -1,1 +1,4 @@
-find "${config.installDir}/bin" -type f -print0 | xargs --no-run-if-empty -0 chmod +x
+find "${config.installDir}/bin/" -type f -print0 | xargs --no-run-if-empty -0 chmod +x
+
+# Priority 1711 - same as official debian jdk17
+update-alternatives --install /usr/bin/java java ${config.installDir}/bin/java 1711

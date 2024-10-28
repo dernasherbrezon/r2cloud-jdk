@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.r2cloud</groupId>
 	<artifactId>r2cloud-jdk</artifactId>
-	<version>17.0.5-3</version>
+	<version>17.0.13-1</version>
 	<name>r2cloud jdk</name>
 	<description>Custom JDK build for r2cloud</description>
 	<inceptionYear>2019</inceptionYear>
@@ -15,7 +15,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<bell.version>17.0.5+8</bell.version>
+		<bell.version>17.0.13+12</bell.version>
 	</properties>
 
 	<distributionManagement>
@@ -128,7 +128,7 @@
 			<plugin>
 				<groupId>com.aerse.maven</groupId>
 				<artifactId>deb-maven-plugin</artifactId>
-				<version>1.16</version>
+				<version>1.19</version>
 				<executions>
 					<execution>
 						<id>package</id>
@@ -139,18 +139,17 @@
 					</execution>
 				</executions>
 				<configuration>
-					<unixUserId>pi</unixUserId>
-					<unixGroupId>pi</unixGroupId>
+					<unixUserId>root</unixUserId>
+					<unixGroupId>root</unixGroupId>
 					<javaServiceWrapper>false</javaServiceWrapper>
 					<section>embedded</section>
 					<arch>${build.arch}</arch>
 					<generateVersion>false</generateVersion>
-					<osDependencies>
-					</osDependencies>
+					<installDir>/usr/lib/jvm/</installDir>
 					<fileSets>
 						<fileSet>
-							<source>${basedir}/src/main/deb/jdk</source>
-							<target>/home/pi/r2cloud-jdk</target>
+							<source>${basedir}/src/main/deb/usr</source>
+							<target>/usr</target>
 						</fileSet>
 					</fileSets>
 				</configuration>

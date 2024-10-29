@@ -148,7 +148,7 @@
 					<installDir>/usr/lib/jvm/</installDir>
 					<fileSets>
 						<fileSet>
-							<source>${basedir}/src/main/deb/usr</source>
+							<source>${project.build.directory}/usr</source>
 							<target>/usr</target>
 						</fileSet>
 					</fileSets>

@@ -18,10 +18,12 @@ else
 	exit 1
 fi
 
+cd ./target/
+
 if [ ! -f bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}-lite.tar.gz ]; then
 	wget https://download.bell-sw.com/java/${PACKAGE_VERSION}/bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}-lite.tar.gz
 fi
-target_directory="./src/main/deb/usr/lib/jvm/r2cloud-jdk"
+target_directory="./usr/lib/jvm/r2cloud-jdk"
 rm -r ${target_directory}
 mkdir -p ${target_directory}
 echo "extracting..."

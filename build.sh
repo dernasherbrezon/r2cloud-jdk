@@ -18,14 +18,11 @@ else
 	exit 1
 fi
 
-if [ ! -f bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}.tar.gz ]; then
-	wget https://download.bell-sw.com/java/${PACKAGE_VERSION}/bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}.tar.gz
+if [ ! -f bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}-lite.tar.gz ]; then
+	wget https://download.bell-sw.com/java/${PACKAGE_VERSION}/bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}-lite.tar.gz
 fi
-if [ ! -d ./jdk-${MAJOR_VERSION} ]; then
-	echo "extracting..."
-	tar xzf bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}.tar.gz
-fi
-echo "building..."
 target_directory="./src/main/deb/usr/lib/jvm/r2cloud-jdk"
 rm -r ${target_directory}
-./jdk-${MAJOR_VERSION}/bin/jlink --add-modules java.base,java.desktop,java.logging,java.net.http,jdk.crypto.cryptoki,java.management,jdk.security.auth --compress=2 --no-header-files --no-man-pages --output ${target_directory}
+mkdir -p ${target_directory}
+echo "extracting..."
+tar xzf bellsoft-jdk${PACKAGE_VERSION}-linux-${SUFFIX}-lite.tar.gz --directory ${target_directory} --strip-components=1
